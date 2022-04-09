@@ -11,6 +11,7 @@ class signup extends StatefulWidget {
 
 class _signupState extends State<signup> {
   TextEditingController nameController = TextEditingController();
+  TextEditingController fullnameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController passwordCController = TextEditingController();
   @override
@@ -58,6 +59,16 @@ class _signupState extends State<signup> {
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
+                controller: fullnameController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Full name',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
                 obscureText: true,
                 controller: passwordController,
                 decoration: const InputDecoration(
@@ -73,7 +84,7 @@ class _signupState extends State<signup> {
                 controller: passwordCController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'confirm Password',
+                  labelText: 'Confirm Password',
                 ),
               ),
             ),
@@ -86,6 +97,10 @@ class _signupState extends State<signup> {
                   print(nameController.text);
                   print(passwordController.text);
                   print(passwordCController.text);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => module()),
+                  );
                 },
               ),
             ),
